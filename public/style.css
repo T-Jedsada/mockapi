@@ -1,0 +1,468 @@
+body {
+  font: 500 14px/1.6 "Helvetica Neue", Helvetica, sans-serif;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+*,*::after,*::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+a:visited {
+  color: #fff;
+}
+a:hover {
+  color: #fff;
+}
+
+blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  font-size: 17.5px;
+  border-left: 5px solid #EEE;
+}
+code {
+  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #C7254E;
+  background-color: #F9F2F4;
+  border-radius: 4px;
+}
+code, pre {
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.428571429;
+  color: #333333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  white-space: pre-wrap;
+}
+.container {
+  height: 100vh;
+  position: relative;
+}
+.left-panel {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 300px;
+  overflow-y: auto;
+  padding: 1.5em;
+  border-right: 1px solid #f2f2f2;
+}
+.left-panel .header {
+  position: relative;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.left-panel .header .search{
+  display: block;
+  width: 180px;
+}
+.right-panel .body {
+  flex: 1 0 auto;
+  overflow: hidden;
+  padding: 5px 10px;
+}
+.right-panel {
+  padding: 1.5em;
+  position: absolute;
+  right: 0px;
+  left: 300px;
+  top: 0px;
+  bottom: 0px;
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column
+}
+.right-panel .header {
+  flex: 0 0 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+.right-panel .header a{
+  display: inline-block;
+}
+.btn {
+  padding: 0.5em 1.5em;
+  background-color: #000;
+  color: #fff;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  white-space: nowrap;
+  font-size: 14px;
+  line-height: 1.42857143;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+.btn:hover,
+.btn:active {
+  color: #fff;
+  background-color: #333;
+  outline: none;
+}
+#routes {
+  padding: 10px 0px;
+  margin: 2em auto;
+  -webkit-user-select: none;
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+}
+#routes li {
+  list-style: none;
+  font-weight: lighter;
+  line-height: 30px;
+  padding: 5px 10px;
+  margin: 0px;
+  font-weight: 300;
+  transition: all 100ms ease-in;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+#routes li .item{
+  position: relative;
+}
+#routes li.remove {
+  transform: translateX(-90px)
+}
+#routes li:hover {
+  cursor: pointer;
+}
+#routes li.active {
+  color: #07A2EA;
+}
+#routes ul {
+  padding: 0px;
+  margin: 0px;
+}
+input[type="search"],
+input[type="text"] {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #000;
+  background-color: #fff;
+  background-image: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0px;
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+input[type="search"]:focus,
+input[type="text"]:focus {
+  border-color: #66afe9;
+  outline: 0;
+}
+
+/*
+ *  Simple Grid
+ *  Learn More - http://dallasbass.com/simple-grid-a-lightweight-responsive-css-grid/
+ *  Project Page - http://thisisdallas.github.com/Simple-Grid/
+ *  Author - Dallas Bass
+ *
+ *  .grid.grid-pad>.col-4-12~.col-8-12
+ */
+[class*='col-'] {
+  float: left;
+  padding-right: 20px;
+}
+[class*='col-']:last-of-type {
+  padding-right: 0px;
+}
+.grid {
+  width: 100%;
+  max-width: 1140px;
+  min-width: 755px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.grid:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.grid-pad {
+  padding: 20px 0 0px 20px;
+}
+.grid-pad > [class*='col-']:last-of-type {
+  padding-right: 20px;
+}
+/* Content Columns */
+.col-1-1 {
+  width: 100%;
+}
+.col-2-3, .col-8-12 {
+  width: 66.66%;
+}
+.col-1-2, .col-6-12 {
+  width: 50%;
+}
+.col-1-3, .col-4-12 {
+  width: 33.33%;
+}
+.col-1-4, .col-3-12 {
+  width: 25%;
+}
+.col-1-5 {
+  width: 20%;
+}
+.col-1-6, .col-2-12 {
+  width: 16.667%;
+}
+.col-1-7 {
+  width: 14.28%;
+}
+
+.col-1-8 {
+  width: 12.5%;
+}
+.col-1-9 {
+  width: 11.1%;
+}
+.col-1-10 {
+  width: 10%;
+}
+.col-1-11 {
+  width: 9.09%;
+}
+.col-1-12 {
+  width: 8.33%
+}
+/* Layout Columns */
+.col-11-12 {
+  width: 91.66%
+}
+.col-10-12 {
+  width: 83.333%;
+}
+.col-9-12 {
+  width: 75%;
+}
+.col-5-12 {
+  width: 41.66%;
+}
+.col-7-12 {
+  width: 58.33%
+}
+@media handheld, only screen and (max-width: 767px) {
+  .grid {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  [class*='col-'] {
+    width: auto;
+    float: none;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.body .CodeMirror {
+  height: 650px;
+}
+a.close {
+  position: absolute;
+  top: -1px;
+  right: 0px;
+  text-decoration: none;
+  color: #888;
+  font-size: 16px;
+  font-weight: bold;
+  display: none;
+}
+li:hover a.close {
+  display: block;
+}
+a.close:hover {
+  color: black;
+}
+
+a.close:active {
+  margin-top: 1px;
+}
+.notice-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999999;
+}
+.notice-container .notice-item {
+  position: relative;
+  font: 500 16px/1.8 "Georgia","Xin Gothic","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
+  background: #fefefe;
+  background: rgba(255,255,255,0.9);
+  color: #565656;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #efefef;
+  text-align: center;
+  transition: all .2s ease-in-out;
+  transform-origin: top;
+}
+/* colors from bootstrap */
+.notice-container .notice-warning {
+  background: #fcf8e3;
+  background: rgba(252, 248, 227, 0.9);
+  border-color: #fbeed5;
+  color: #c09853;
+}
+
+.notice-container .notice-success {
+  background: #EAFBE3;
+  background: rgba(221, 242, 210, 0.9);
+  border-color: #D6E9C6;
+  color: #3FB16F;
+}
+
+.notice-container .notice-danger,
+.notice-container .notice-error {
+  background: #f2dede;
+  background: rgba(242, 222, 222, 0.9);
+  border-color: #ebccd1;
+  color: #a94442;
+}
+
+.notice-container .notice-content {
+  color: inherit;
+  text-decoration: none;
+  margin: 0 auto;
+  max-width: 650px;
+}
+.notice-container .notice-close {
+  position: absolute;
+  top: 5px;
+  height: 40px;
+  right: 20px;
+  width: 40px;
+  cursor: pointer;
+  font: 400 normal 22px/40px "Arial", sans-serif;
+  color: rgba(231, 76, 60, 0.6);
+}
+.notice-container .notice-dismiss {
+  transform: rotateX(-75deg);
+  opacity: 0;
+}
+.CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
+  position: absolute;
+  background: #ccc;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+}
+
+.CodeMirror-simplescroll-horizontal, .CodeMirror-simplescroll-vertical {
+  position: absolute;
+  z-index: 6;
+  background: #eee;
+}
+
+.CodeMirror-simplescroll-horizontal {
+  bottom: 0; left: 0;
+  height: 8px;
+}
+.CodeMirror-simplescroll-horizontal div {
+  bottom: 0;
+  height: 100%;
+}
+
+.CodeMirror-simplescroll-vertical {
+  right: 0; top: 0;
+  width: 8px;
+}
+.CodeMirror-simplescroll-vertical div {
+  right: 0;
+  width: 100%;
+}
+
+
+.CodeMirror-overlayscroll .CodeMirror-scrollbar-filler, .CodeMirror-overlayscroll .CodeMirror-gutter-filler {
+  display: none;
+}
+
+.CodeMirror-overlayscroll-horizontal div, .CodeMirror-overlayscroll-vertical div {
+  position: absolute;
+  background: #bcd;
+  border-radius: 3px;
+}
+
+.CodeMirror-overlayscroll-horizontal, .CodeMirror-overlayscroll-vertical {
+  position: absolute;
+  z-index: 6;
+}
+
+.CodeMirror-overlayscroll-horizontal {
+  bottom: 0; left: 0;
+  height: 6px;
+}
+.CodeMirror-overlayscroll-horizontal div {
+  bottom: 0;
+  height: 100%;
+}
+
+.CodeMirror-overlayscroll-vertical {
+  right: 0; top: 0;
+  width: 6px;
+}
+.CodeMirror-overlayscroll-vertical div {
+  right: 0;
+  width: 100%;
+}
+.icon-search {
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  display: block;
+  left: 40px;
+  top: 23px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2Mi45OTMgNjIuOTkzIj48cGF0aCBkPSJNNjIuNTggNjAuNTk0TDQxLjMxMyAzOS4zM2MzLjcxMi00LjE4IDUuOTg4LTkuNjYgNS45ODgtMTUuNjc4QzQ3LjMgMTAuNjEgMzYuNjkzLjAwMiAyMy42NS4wMDIgMTAuNjEgMCAwIDEwLjYxIDAgMjMuNjVjMCAxMy4wNCAxMC42MSAyMy42NSAyMy42NSAyMy42NSA2LjAxNyAwIDExLjQ5OC0yLjI3NiAxNS42NzgtNS45ODhMNjAuNTkzIDYyLjU4YTEuNDAzIDEuNDAzIDAgMCAwIDEuOTg3IDBjLjU1LS41NS41NS0xLjQzNyAwLTEuOTg2ek0yMy42NSA0NC40OTJjLTExLjQ5IDAtMjAuODQtOS4zNDgtMjAuODQtMjAuODRzOS4zNS0yMC44NCAyMC44NC0yMC44NGMxMS40OTIgMCAyMC44NCA5LjM0OCAyMC44NCAyMC44NCAwIDUuMjQtMS45NTcgMTAuMDIzLTUuMTYyIDEzLjY5LS42Mi43MDUtMS4yOCAxLjM2Ny0xLjk4NyAxLjk4Ni0zLjY2NSAzLjIwNi04LjQ0OCA1LjE2NC0xMy42OSA1LjE2NHoiIGZpbGw9IiMwMTAwMDIiLz48L3N2Zz4=);
+}

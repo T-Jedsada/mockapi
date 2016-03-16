@@ -1,0 +1,53 @@
+{
+  "name": "api-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "chemzqm@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "co": "^4.6.0",
+    "co-body": "^4.0.0",
+    "co-redis": "^2.1.0",
+    "component-classes": "^1.2.5",
+    "component-closest": "^1.0.0",
+    "component-delegate": "^0.2.3",
+    "component-emitter": "^1.2.0",
+    "component-event": "^0.1.4",
+    "component-file-picker": "^0.2.1",
+    "component-notice": "0.0.15",
+    "component-spin": "^0.1.1",
+    "domify": "^1.4.0",
+    "js-base64": "^2.1.9",
+    "koa": "^1.2.0",
+    "koa-cors": "0.0.16",
+    "koa-liveload": "0.0.2",
+    "koa-router": "^5.4.0",
+    "koa-static": "^2.0.0",
+    "nprogress": "^0.2.0",
+    "radio-component": "0.0.2",
+    "redis": "^2.5.0",
+    "request-component": "0.0.1",
+    "sweet-sortable": "^0.3.0",
+    "transitionend-property": "0.0.2"
+  },
+  "browser": {
+    "request": "request-component",
+    "notice": "component-notice",
+    "emitter": "component-emitter",
+    "event": "component-event",
+    "delegate": "component-delegate",
+    "closest": "component-closest",
+    "classes": "component-classes",
+    "spin": "component-spin",
+    "radio": "radio-component",
+    "file-picker": "component-file-picker"
+  },
+  "devDependencies": {
+    "html-loader": "^0.4.3",
+    "json-loader": "^0.5.4"
+  }
+}

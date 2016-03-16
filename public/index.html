@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>API 配置</title>
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, width=device-width, height=device-height"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="/style.css">
+  <script src="lib/codemirror.js"></script>
+  <link rel="stylesheet" href="lib/codemirror.css">
+  <script src="mode/javascript/javascript.js"></script>
+  <script src="addon/simplescrollbars.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <div class="header">
+        <span class="icon-search"></span>
+        <input type="search" class="search" name="search">
+      </div>
+      <div id="routes">
+        <ul>
+        </ul>
+      </div>
+    </div>
+    <div class="right-panel">
+      <div class="header">
+          <div class="grid">
+            <div class="col-7-12">
+              <input name="route" class="route" placeholder="GET /users" type="text">
+            </div>
+            <div class="col-5-12">
+              <button class="save btn">Save</button>
+              <div style="float:right">
+                <a id="import" href="#" class="btn">import</a>
+                <a target="_blank" href="/_exportapi" id="export" class="btn">export</a>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="body">
+        <div>
+          <textarea id="content" name="content"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="bundle.js" charset="utf-8">
+  </script>
+</body>
+</html>
