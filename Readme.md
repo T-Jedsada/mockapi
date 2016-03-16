@@ -3,7 +3,7 @@
 Mockapi helps you create a mock api service with JSON response quickly, so you
 can test your client with this fake service.
 
-![](interface)
+<img src="http://7xrrpg.com2.z0.glb.qiniucdn.com/mockapi%20(2).gif" alt="interface">
 
 TODO: custom response status and headers
 
