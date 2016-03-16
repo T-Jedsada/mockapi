@@ -103,7 +103,7 @@ Routes.prototype.addItem = function (route, prepend) {
   }
   setTimeout(function () {
     classes(el).remove('adding')
-  }, 20)
+  }, 1000)
   if (prepend) this.saveOrder()
 }
 
