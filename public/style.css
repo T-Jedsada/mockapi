@@ -82,7 +82,6 @@ pre {
   width: 180px;
 }
 .right-panel .body {
-  flex: 1 0 auto;
   overflow: hidden;
   padding: 5px 10px;
 }
@@ -94,11 +93,8 @@ pre {
   top: 0px;
   bottom: 0px;
   flex: 0 1 auto;
-  display: flex;
-  flex-direction: column
 }
 .right-panel .header {
-  flex: 0 0 60px;
   height: 60px;
   display: flex;
   align-items: center;
@@ -309,7 +305,7 @@ input[type="text"]:focus {
   }
 }
 .body .CodeMirror {
-  height: 650px;
+  height: calc(100vh - 100px)
 }
 a.close {
   position: absolute;
