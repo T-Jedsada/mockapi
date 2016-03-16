@@ -92,6 +92,7 @@ Routes.prototype.addItem = function (route, prepend) {
   var el = domify(template.replace('{{route}}', route))
   el.setAttribute('data-id', Base64.encode(route))
   if (prepend) {
+    classes(el).add('adding')
     if (this.list.children.length) {
       this.list.insertBefore(el, this.list.firstElementChild)
     } else {
@@ -100,6 +101,9 @@ Routes.prototype.addItem = function (route, prepend) {
   } else {
     this.list.appendChild(el)
   }
+  setTimeout(function () {
+    classes(el).remove('adding')
+  }, 20)
   if (prepend) this.saveOrder()
 }
 

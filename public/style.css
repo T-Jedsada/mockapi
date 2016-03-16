@@ -156,8 +156,11 @@ pre {
   position: relative;
 }
 #routes li.remove {
-  transition: all 100ms ease-in;
+  transition: all 200ms ease-in;
   transform: translateX(-90px)
+}
+#routes li.adding {
+  animation: 0.5s ease-in reverse adding;
 }
 #routes li:hover {
   cursor: pointer;
@@ -465,4 +468,13 @@ a.close:active {
   left: 40px;
   top: 23px;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2Mi45OTMgNjIuOTkzIj48cGF0aCBkPSJNNjIuNTggNjAuNTk0TDQxLjMxMyAzOS4zM2MzLjcxMi00LjE4IDUuOTg4LTkuNjYgNS45ODgtMTUuNjc4QzQ3LjMgMTAuNjEgMzYuNjkzLjAwMiAyMy42NS4wMDIgMTAuNjEgMCAwIDEwLjYxIDAgMjMuNjVjMCAxMy4wNCAxMC42MSAyMy42NSAyMy42NSAyMy42NSA2LjAxNyAwIDExLjQ5OC0yLjI3NiAxNS42NzgtNS45ODhMNjAuNTkzIDYyLjU4YTEuNDAzIDEuNDAzIDAgMCAwIDEuOTg3IDBjLjU1LS41NS41NS0xLjQzNyAwLTEuOTg2ek0yMy42NSA0NC40OTJjLTExLjQ5IDAtMjAuODQtOS4zNDgtMjAuODQtMjAuODRzOS4zNS0yMC44NCAyMC44NC0yMC44NGMxMS40OTIgMCAyMC44NCA5LjM0OCAyMC44NCAyMC44NCAwIDUuMjQtMS45NTcgMTAuMDIzLTUuMTYyIDEzLjY5LS42Mi43MDUtMS4yOCAxLjM2Ny0xLjk4NyAxLjk4Ni0zLjY2NSAzLjIwNi04LjQ0OCA1LjE2NC0xMy42OSA1LjE2NHoiIGZpbGw9IiMwMTAwMDIiLz48L3N2Zz4=);
+}
+
+@keyframes adding {
+  from {
+    transform: translateX(0)
+  }
+  to {
+    transform: translateX(-60px)
+  }
 }

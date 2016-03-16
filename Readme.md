@@ -33,6 +33,9 @@ node server.js
 
 Open your browser at `http://localhost:4000` (default port)
 
+You can make use of http://www.json-generator.com/ to generate the json data,
+and https://www.getpostman.com/ to check the http api.
+
 ## MIT license
 Copyright (c) 2016 chemzqm@gmail.com
 
