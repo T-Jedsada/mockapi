@@ -27,7 +27,7 @@ router.delete('/_deleteapi', function* (next) {
 })
 
 router.post('/_addapi', function* (next) {
-  var body = yield parse.form(this.req)
+  var body = yield parse.form(this.req,{limit: '30mb'} )
   if (!body.route || !body.content || !/^(GET|PUT|POST|DELETE|PATCH)/.test(body.route)) {
     this.body = { error: 'route and content empty or invalid'}
     this.status = 401
@@ -45,7 +45,7 @@ router.get('/_exportapi', function* () {
 })
 
 router.post('/_importapi', function* () {
-  var body = yield parse.json(this.req)
+  var body = yield parse.json(this.req, {limit: '30mb'})
   if (!body.data) {
     this.body = { error: 'no data found'}
     this.status = 401
