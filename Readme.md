@@ -7,9 +7,11 @@ can test your client with this fake service.
 
 TODO: custom response status and headers
 
+Warning: only tested on current Chrome.
+
 ## Features
 
-* Create, remove, filter, delete api
+* Create, remove, filter, delete and sort api
 * Import and export the api list
 * Shortcut, use `⌘ s` to save current api
 

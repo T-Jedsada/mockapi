@@ -149,7 +149,6 @@ pre {
   padding: 5px 10px;
   margin: 0px;
   font-weight: 300;
-  transition: all 100ms ease-in;
   background-color: #fff;
   border-bottom: 1px solid #ccc;
 }
@@ -157,6 +156,7 @@ pre {
   position: relative;
 }
 #routes li.remove {
+  transition: all 100ms ease-in;
   transform: translateX(-90px)
 }
 #routes li:hover {

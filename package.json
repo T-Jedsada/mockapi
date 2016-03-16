@@ -31,7 +31,7 @@
     "radio-component": "0.0.2",
     "redis": "^2.5.0",
     "request-component": "0.0.1",
-    "sweet-sortable": "^0.3.0",
+    "sweet-sortable": "^0.3.2",
     "transitionend-property": "0.0.2"
   },
   "browser": {

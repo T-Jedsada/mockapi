@@ -29,6 +29,13 @@ function Routes(root) {
 Emitter(Routes.prototype)
 
 Routes.prototype.saveOrder = function () {
+  var lis = this.list.children
+  var ids = []
+  for (var i = 0, l = lis.length; i < l; i++) {
+    var id = lis[i].getAttribute('data-id')
+    if (id) ids.push(id)
+  }
+  window.localStorage.setItem('routes', JSON.stringify(ids))
 }
 
 Routes.prototype.loadItems = function () {
@@ -49,14 +56,36 @@ Routes.prototype.loadItems = function () {
           })
         }
       } else {
-        var keys = res.body.keys
+        var keys = self.orderItems(res.body.keys)
         keys.forEach(function (key) {
           self.addItem(key)
         })
-        var li = self.list.querySelector('li:first-child')
-        if (li) self.active(li, true)
+        var active_id = window.localStorage.getItem('active')
+        if (active_id != null) {
+          self.active(active_id, true)
+        } else {
+          var li = self.list.children[0]
+          if (li) self.active(li, true)
+        }
       }
     })
+}
+
+Routes.prototype.orderItems = function (keys) {
+  var res = []
+  var routes = JSON.parse(window.localStorage.getItem('routes')) || []
+  for (var i = 0, l = routes.length; i < l; i++) {
+    var route = Base64.decode(routes[i])
+    if (keys.indexOf(route) != -1) {
+      res.push(route)
+    }
+  }
+  keys.forEach(function (key) {
+    if (res.indexOf(key) == -1) {
+      res.unshift(key)
+    }
+  })
+  return res
 }
 
 Routes.prototype.addItem = function (route, prepend) {
@@ -71,6 +100,7 @@ Routes.prototype.addItem = function (route, prepend) {
   } else {
     this.list.appendChild(el)
   }
+  if (prepend) this.saveOrder()
 }
 
 Routes.prototype.hasItem = function (route) {
@@ -121,6 +151,7 @@ Routes.prototype.removeItem = function (e) {
         self.emit('remove', route)
         event.bind(li, transitionEnd, function () {
           if (li.parentNode) li.parentNode.removeChild(li)
+          self.saveOrder()
         })
         classes(li).add('remove')
         if (self.list.children.length === 1) {
@@ -142,11 +173,15 @@ Routes.prototype.removeItem = function (e) {
 Routes.prototype.active = function (li, emit) {
   if (typeof li === 'string') {
     li = this.list.querySelector('[data-id="'+li+'"]')
-    if (!li) throw new Error('not found ' + li)
+    if (!li && this.list.children.length) {
+      li = this.list.children[0]
+    }
   }
+  if (!li) return
   if (classes(li).has('active')) return
   radio(li)
   if (emit) {
+    window.localStorage.setItem('active', li.getAttribute('data-id'))
     this.emit('active', li)
   }
 }
