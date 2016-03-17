@@ -29,6 +29,23 @@ Panel.prototype.save = function () {
     new Notice('route should not be empty', {
       type: 'error'
     })
+    return
+  }
+  if (!/^(GET|POST|PUT|DELETE|PATCH)\s/.test(route)) {
+    new Notice('Need GET/POST/PUT/DELETE/PATH method', {
+      type: 'error'
+    })
+    return
+  }
+  if (/^\w+\shttp/.test(route)) {
+    var method = route.match(/^\w+/)[0]
+    route = method + ' '+ parseUrl(route.replace(method, ''))
+    this.input.value = route
+  } else if (!/\w+\s\//.test(route)) {
+    new Notice('Invalid request url', {
+      type: 'error'
+    })
+    return
   }
   var content = editor.getValue()
   var self = this
@@ -87,6 +104,12 @@ Panel.prototype.load = function (route) {
 Panel.prototype.empty = function () {
   this.input.value = ''
   editor.setValue('')
+}
+
+function parseUrl(url) {
+  var parser = document.createElement('a')
+  parser.href = url
+  return parser.pathname + parser.search
 }
 
 module.exports = Panel
