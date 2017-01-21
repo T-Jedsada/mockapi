@@ -8,6 +8,8 @@ var liveload = require('koa-liveload')
 var koa = require('koa')
 var app = koa()
 var router = require('koa-router')()
+var logger = require('koa-logger')
+
 
 router.get('/_listapi', function* (next) {
   var data = yield redisCo.hkeys('apis')
@@ -82,6 +84,7 @@ app.use(function* (next) {
 })
 
 var root = __dirname + '/public'
+app.use(logger())
 app.use(liveload(root))
 app.use(require('koa-static')(root, {
   index: 'index.html'
