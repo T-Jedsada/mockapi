@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/.bin/webpack"
+    "build": "./node_modules/.bin/webpack",
+    "start" :  "node server.js"
   },
   "author": "chemzqm@gmail.com",
   "license": "MIT",
