@@ -90,6 +90,6 @@ app.use(require('koa-static')(root, {
   index: 'index.html'
 }))
 
-app.listen(config.port, function () {
+app.listen(process.env.PORT , function () {
   console.log('server listening on ' + config.port)
 })
