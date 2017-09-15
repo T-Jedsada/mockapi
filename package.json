@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/webpack",
-    "start" :  "node server.js"
+    "start": "npm run build | redis-server | node server.js"
   },
   "author": "chemzqm@gmail.com",
   "license": "MIT",
